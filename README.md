@@ -1,4 +1,4 @@
-<a href="https://demo-nextjs-with-supabase.vercel.app/">
+<a href="https://one-saas.vercel.app/">
   <img alt="one-saas - the fastest way to build apps with Next.js and Supabase" src="https://demo-nextjs-with-supabase.vercel.app/opengraph-image.png">
   <h1 align="center">one-saas</h1>
 </a>
@@ -33,7 +33,7 @@
 
 ## Demo
 
-You can view a fully working demo at [demo-nextjs-with-supabase.vercel.app](https://demo-nextjs-with-supabase.vercel.app/).
+You can view a fully working demo at [one-saas.vercel.app](https://one-saas.vercel.app/).
 
 ## Deploy to Vercel
 
