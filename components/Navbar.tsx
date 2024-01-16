@@ -1,6 +1,6 @@
 "use client";
 import {Fragment} from 'react';
-import {redirect, usePathname} from 'next/navigation';
+import {usePathname} from 'next/navigation';
 import {Disclosure, Menu, Transition} from '@headlessui/react';
 import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline';
 import Image from 'next/image';
@@ -19,7 +19,6 @@ function classNames(...classes: string[]) {
 
 export default function Navbar({user}: { user: any }) {
     const pathname = usePathname();
-    console.log("user", user)
     if (!user && !user?.value || user?.value == "null") {
         user = null
     }
@@ -187,24 +186,22 @@ export default function Navbar({user}: { user: any }) {
                                         </div>
                                     </div>
                                     <div className="mt-3 space-y-1">
-                                        <button
+                                        <form
                                             className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-                                            onClick={signOut}
+                                            action={signOut}
                                         >
-                                            Sign out
-                                        </button>
+                                            <button>Sign out</button>
+                                        </form>
                                     </div>
                                 </>
                             ) : (
                                 <div className="mt-3 space-y-1">
-                                    <button
+                                    <Link
+                                        href="/login"
                                         className="flex w-full px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-                                        onClick={() => {
-                                            redirect("/login")
-                                        }}
                                     >
                                         Sign in
-                                    </button>
+                                    </Link>
                                 </div>
                             )}
                         </div>

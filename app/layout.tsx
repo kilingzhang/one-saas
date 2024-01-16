@@ -4,6 +4,7 @@ import {Analytics} from '@vercel/analytics/react';
 import {Suspense} from "react";
 import Navbar from "@/components/Navbar";
 import {getCurrentUser} from "@/utils/supabase/auth";
+import {cn} from "@/lib/utils";
 
 const defaultUrl = process.env.VERCEL_URL
     ? `https://${process.env.VERCEL_URL}`
@@ -20,9 +21,19 @@ export default async function RootLayout({children,}: { children: React.ReactNod
     const user = await getCurrentUser();
     return (
         <html lang="en" className={GeistSans.className}>
-        <body className="h-full bg-background text-foreground min-h-screen flex flex-col">
+        <body
+            className={cn(
+                "h-full bg-background text-foreground min-h-screen flex flex-col font-sans antialiased",
+                "--font-sans"
+            )}
+        >
         <Suspense><Navbar user={user}/></Suspense>
-        {children}
+        <div  className={cn(
+            "h-full bg-background text-foreground min-h-screen flex flex-col font-sans antialiased items-center justify-center",
+            "--font-sans"
+        )}>
+            {children}
+        </div>
         <footer className="w-full border-t border-t-foreground/10 p-8 flex justify-center text-center text-xs">
             <p>
                 Powered by{" "}
