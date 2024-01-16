@@ -48,7 +48,7 @@ export default async function Index() {
             className="font-bold hover:underline"
             rel="noreferrer"
           >
-            Supabase
+            07
           </a>
         </p>
       </footer>
