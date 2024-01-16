@@ -1,5 +1,5 @@
 <a href="https://one-saas.vercel.app/">
-  <img alt="one-saas - the fastest way to build saas apps with Next.js and Supabase" src="https://demo-nextjs-with-supabase.vercel.app/opengraph-image.png">
+  <img alt="one-saas - the fastest way to build saas apps with Next.js and Supabase" src="https://one-saas.vercel.app/opengraph-image.png">
   <h1 align="center">one-saas</h1>
 </a>
 
