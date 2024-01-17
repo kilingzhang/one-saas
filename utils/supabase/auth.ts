@@ -11,14 +11,6 @@ export async function signOut() {
     return redirect("/");
 }
 
-export async function signIn(email: string, password: string) {
-    const cookieStore = cookies();
-    const supabase = createClient(cookieStore);
-    await supabase.auth.signInWithPassword({email, password});
-    return redirect("/dashboard");
-}
-
-
 export async function getCurrentUser() {
     const cookieStore = cookies();
     const supabase = createClient(cookieStore);
