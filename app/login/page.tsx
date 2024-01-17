@@ -9,7 +9,7 @@ const supabase = createClient();
 export default function Login() {
     useEffect(() => {
         const {data: authListener} = supabase.auth.onAuthStateChange(
-            (event, session) => {
+            (_event, session) => {
                 if (session) {
                     window.location.href = "/";
                 }
@@ -22,7 +22,7 @@ export default function Login() {
     return (
         <Auth
             supabaseClient={supabase}
-            redirectTo={process.env.NEXT_PUBLIC_SITE_URL!}
+            redirectTo={process.env.NEXT_PUBLIC_SITE_URL}
             appearance={{theme: ThemeSupa}}
             providers={['github']}
         />
