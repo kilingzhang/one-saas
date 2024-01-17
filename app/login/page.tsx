@@ -11,7 +11,7 @@ const defaultUrl = process.env.VERCEL_URL
 
 const supabase = createClient();
 
-export default async function Login(request: Request) {
+export default async function Login() {
     const user = await getCurrentUser();
     if (user) {
         window.location.href = defaultUrl;
