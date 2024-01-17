@@ -8,7 +8,7 @@ import Link from "next/link";
 import {signOut} from "@/utils/supabase/auth";
 
 const navigation = [
-    {name: 'Dashboard', href: '/'},
+    {name: 'Home', href: '/'},
     {name: 'Playground', href: '/playground'}
 ];
 
@@ -18,10 +18,8 @@ function classNames(...classes: string[]) {
 
 
 export default function Navbar({user}: { user: any }) {
+    console.log("user:", user)
     const pathname = usePathname();
-    if (!user && !user?.value || user?.value == "null") {
-        user = null
-    }
     return (
         <Disclosure as="nav" className="bg-white shadow-sm">
             {({open}) => (
@@ -83,13 +81,25 @@ export default function Navbar({user}: { user: any }) {
                                         <Menu.Button
                                             className="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2">
                                             <span className="sr-only">Open user menu</span>
-                                            <Image
-                                                className="h-8 w-8 rounded-full"
-                                                src={user?.user_metadata?.avatar_url || 'https://avatar.vercel.sh/leerob'}
-                                                height={32}
-                                                width={32}
-                                                alt={`${user?.user_metadata?.name || 'placeholder'} avatar`}
-                                            />
+                                            <div className="flex items-center px-4">
+                                                <div className="flex-shrink-0">
+                                                    <Image
+                                                        className="h-8 w-8 rounded-full"
+                                                        src={user?.user_metadata?.avatar_url || 'https://avatar.vercel.sh/leerob'}
+                                                        height={32}
+                                                        width={32}
+                                                        alt={`${user?.user_metadata?.name} avatar`}
+                                                    />
+                                                </div>
+                                                <div className="ml-3">
+                                                    <div className="text-base font-medium text-gray-800">
+                                                        {user?.user_metadata?.name}
+                                                    </div>
+                                                    <div className="text-sm font-medium text-gray-500">
+                                                        {user?.user_metadata?.email}
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </Menu.Button>
                                     </div>
                                     <Transition
@@ -170,7 +180,7 @@ export default function Navbar({user}: { user: any }) {
                                         <div className="flex-shrink-0">
                                             <Image
                                                 className="h-8 w-8 rounded-full"
-                                                src={user?.user_metadata?.image}
+                                                src={user?.user_metadata?.avatar_url || 'https://avatar.vercel.sh/leerob'}
                                                 height={32}
                                                 width={32}
                                                 alt={`${user?.user_metadata?.name} avatar`}
