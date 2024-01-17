@@ -3,25 +3,15 @@ import React, {useEffect} from 'react';
 import {Auth} from '@supabase/auth-ui-react';
 import {createClient} from "@/utils/supabase/client";
 import {ThemeSupa} from '@supabase/auth-ui-shared';
-import {getCurrentUser} from "@/utils/supabase/auth";
-
-const defaultUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "http://localhost:3000";
 
 const supabase = createClient();
 
-export default async function Login() {
-    const user = await getCurrentUser();
-    if (user) {
-        window.location.href = defaultUrl;
-    }
+export default function Login() {
     useEffect(() => {
         const {data: authListener} = supabase.auth.onAuthStateChange(
             (event, session) => {
-                console.log(`Supabase auth event: ${event}`);
-                if (event == "SIGNED_IN") {
-                    window.location.href = defaultUrl;
+                if (session) {
+                    window.location.href = "/";
                 }
             }
         );
