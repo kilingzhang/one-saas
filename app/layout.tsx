@@ -12,7 +12,7 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
     metadataBase: new URL(defaultUrl),
-    title: "one-saas",
+    title: "saaskit",
     description: "The fastest way to build saas apps with Next.js and Supabase",
 };
 
@@ -35,12 +35,12 @@ export default async function RootLayout({children,}: { children: React.ReactNod
             <p>
                 Powered by{" "}
                 <a
-                    href="https://github.com/kilingzhang/one-saas"
+                    href="https://github.com/kilingzhang/saaskit"
                     target="_blank"
                     className="font-bold hover:underline"
                     rel="noreferrer"
                 >
-                    one-saas
+                    saaskit
                 </a>
             </p>
         </footer>

@@ -1,6 +1,6 @@
-<a href="https://one-saas.vercel.app/">
-  <img alt="one-saas - the fastest way to build saas apps with Next.js and Supabase" src="https://one-saas.vercel.app/opengraph-image.png">
-  <h1 align="center">one-saas</h1>
+<a href="https://one-saaskit.vercel.app/">
+  <img alt="saaskit - the fastest way to build saas apps with Next.js and Supabase" src="https://one-saaskit.vercel.app/opengraph-image.png">
+  <h1 align="center">saaskit</h1>
 </a>
 
 <p align="center">
@@ -33,7 +33,7 @@
 
 ## Demo
 
-You can view a fully working demo at [one-saas.vercel.app](https://one-saas.vercel.app/).
+You can view a fully working demo at [one-saaskit.vercel.app](https://one-saaskit.vercel.app/).
 
 ## Deploy to Vercel
 
@@ -41,7 +41,7 @@ Vercel deployment will guide you through creating a Supabase account and project
 
 After installation of the Supabase integration, all relevant environment variables will be assigned to the project so the deployment is fully functioning.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fkilingzhang%2Fone-saas%2Ftree%2Fmain%26project-name%3Done-saas%26repository-name%3Done-saas%26demo-title%3Done-saas%26demo-description%3Done-saas%20app%26demo-url%3Dhttps%3A%2F%2Fone-saas.vercel.app%26external-id%3Dhttps%3A%2F%2Fgithub.com%2Fkilingzhang%2Fone-saas%2Ftree%2Fmain%26demo-image%3Dhttps%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2Fopengraph-image.png%26integration-ids%3Doac_VqOgBHqhEoFTPzGkPd7L0iH6)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fkilingzhang%2Fsaaskit%2Ftree%2Fmain%26project-name%3Dsaaskit%26repository-name%3Dsaaskit%26demo-title%3Dsaaskit%26demo-description%3Dsaaskit%20app%26demo-url%3Dhttps%3A%2F%2Fone-saaskit.vercel.app%26external-id%3Dhttps%3A%2F%2Fgithub.com%2Fkilingzhang%2Fsaaskit%2Ftree%2Fmain%26demo-image%3Dhttps%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2Fopengraph-image.png%26integration-ids%3Doac_VqOgBHqhEoFTPzGkPd7L0iH6)
 
 The above will also clone the Starter kit to your GitHub, you can clone that locally and develop locally.
 

@@ -26,7 +26,7 @@ export default function Header() {
                     className="font-bold hover:underline"
                     rel="noreferrer"
                 >
-                    Saas
+                    SaaS
                 </a>
                 {" "}apps with{" "}
                 <a
