@@ -3,13 +3,15 @@ import {Fragment} from 'react';
 import {usePathname} from 'next/navigation';
 import {Disclosure, Menu, Transition} from '@headlessui/react';
 import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline';
-import Image from 'next/image';
 import Link from "next/link";
 import {signOut} from "@/utils/supabase/auth";
+import DeployNextLogo from "@/components/DeployNextLogo";
+import Avatar from "@/components/Avatar";
 
 const navigation = [
     {name: 'Home', href: '/'},
-    {name: 'Dashboard', href: '/dashboard'}
+    {name: 'Dashboard', href: '/dashboard'},
+    {name: 'User', href: '/user'}
 ];
 
 function classNames(...classes: string[]) {
@@ -27,34 +29,7 @@ export default function Navbar({user}: { user: any }) {
                         <div className="flex h-16 justify-between">
                             <div className="flex">
                                 <div className="flex flex-shrink-0 items-center">
-                                    <a
-                                        className="py-2 px-3 flex rounded-md no-underline hover:bg-btn-background-hover border"
-                                        href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fkilingzhang%2Fsaaskit%2Ftree%2Fmain%26project-name%3Dsaaskit%26repository-name%3Dsaaskit%26demo-title%3Dsaaskit%26demo-description%3Dsaaskit%20app%26demo-url%3Dhttps%3A%2F%2Fone-saaskit.vercel.app%26external-id%3Dhttps%3A%2F%2Fgithub.com%2Fkilingzhang%2Fsaaskit%2Ftree%2Fmain%26demo-image%3Dhttps%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2Fopengraph-image.png%26integration-ids%3Doac_VqOgBHqhEoFTPzGkPd7L0iH6"
-                                        target="_blank"
-                                        rel="noreferrer"
-                                    >
-                                        <svg
-                                            width="32"
-                                            height="32"
-                                            viewBox="0 0 32 32"
-                                            fill="none"
-                                            className="text-gray-100"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <rect
-                                                width="100%"
-                                                height="100%"
-                                                rx="16"
-                                                fill="currentColor"
-                                            />
-                                            <path
-                                                fillRule="evenodd"
-                                                clipRule="evenodd"
-                                                d="M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z"
-                                                fill="black"
-                                            />
-                                        </svg>
-                                    </a>
+                                    <DeployNextLogo/>
                                 </div>
                                 <div className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
                                     {navigation.map((item) => (
@@ -79,26 +54,7 @@ export default function Navbar({user}: { user: any }) {
                                     <div>
                                         <Menu.Button
                                             className="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2">
-                                            <span className="sr-only">Open user menu</span>
-                                            <div className="flex items-center px-4">
-                                                <div className="flex-shrink-0">
-                                                    <Image
-                                                        className="h-8 w-8 rounded-full"
-                                                        src={user?.user_metadata?.avatar_url || 'https://avatar.vercel.sh/leerob'}
-                                                        height={32}
-                                                        width={32}
-                                                        alt={`${user?.user_metadata?.name} avatar`}
-                                                    />
-                                                </div>
-                                                <div className="ml-3">
-                                                    <div className="text-base font-medium text-gray-800">
-                                                        {user?.user_metadata?.name}
-                                                    </div>
-                                                    <div className="text-sm font-medium text-gray-500">
-                                                        {user?.user_metadata?.email}
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <Avatar user={user}/>
                                         </Menu.Button>
                                     </div>
                                     <Transition
@@ -153,6 +109,7 @@ export default function Navbar({user}: { user: any }) {
                         </div>
                     </div>
 
+                    {/* 移动端导航面板 */}
                     <Disclosure.Panel className="sm:hidden">
                         <div className="space-y-1 pt-2 pb-3">
                             {navigation.map((item) => (
@@ -175,25 +132,7 @@ export default function Navbar({user}: { user: any }) {
                         <div className="border-t border-gray-200 pt-4 pb-3">
                             {user ? (
                                 <>
-                                    <div className="flex items-center px-4">
-                                        <div className="flex-shrink-0">
-                                            <Image
-                                                className="h-8 w-8 rounded-full"
-                                                src={user?.user_metadata?.avatar_url || 'https://avatar.vercel.sh/leerob'}
-                                                height={32}
-                                                width={32}
-                                                alt={`${user?.user_metadata?.name} avatar`}
-                                            />
-                                        </div>
-                                        <div className="ml-3">
-                                            <div className="text-base font-medium text-gray-800">
-                                                {user?.user_metadata?.name}
-                                            </div>
-                                            <div className="text-sm font-medium text-gray-500">
-                                                {user?.user_metadata?.email}
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <Avatar user={user}/>
                                     <div className="mt-3 space-y-1">
                                         <form
                                             className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"

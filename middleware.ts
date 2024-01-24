@@ -8,6 +8,14 @@ export async function middleware(request: NextRequest) {
     try {
         const {pathname} = request.nextUrl
 
+        if (pathname.endsWith('.png')) {
+            return NextResponse.next({
+                request: {
+                    headers: request.headers,
+                },
+            });
+        }
+
         // This `try/catch` block is only here for the interactive tutorial.
         // Feel free to remove once you have Supabase connected.
         const {supabase,} = createClient(request);

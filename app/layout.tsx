@@ -1,7 +1,7 @@
 import {GeistSans} from "geist/font/sans";
 import "./globals.css";
 import {Analytics} from '@vercel/analytics/react';
-import {Suspense} from "react";
+import React, {Suspense} from "react";
 import Navbar from "@/components/Navbar";
 import {getCurrentUser} from "@/utils/supabase/auth";
 import {cn} from "@/lib/utils";
@@ -12,7 +12,7 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
     metadataBase: new URL(defaultUrl),
-    title: "saaskit",
+    title: "SaaSKit",
     description: "The fastest way to build saas apps with Next.js and Supabase",
 };
 
@@ -38,7 +38,7 @@ export default async function RootLayout({children,}: { children: React.ReactNod
                     className="font-bold hover:underline"
                     rel="noreferrer"
                 >
-                    saaskit
+                    SaaSKit
                 </a>
             </p>
         </footer>
