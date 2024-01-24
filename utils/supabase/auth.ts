@@ -8,7 +8,7 @@ export async function signOut() {
     const cookieStore = cookies();
     const supabase = createClient(cookieStore);
     await supabase.auth.signOut();
-    return redirect("/");
+    return redirect("/login");
 }
 
 export async function getCurrentUser() {

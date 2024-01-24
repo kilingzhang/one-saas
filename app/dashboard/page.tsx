@@ -164,18 +164,6 @@ const columns: ColumnDef<Payment>[] = [
 const supabase = createClient();
 
 export default function PlaygroundPage() {
-    useEffect(() => {
-        const {data: authListener} = supabase.auth.onAuthStateChange(
-            (event, session) => {
-                if (!session) {
-                    window.location.href = "/login";
-                }
-            }
-        );
-        // 当组件卸载时，取消监听
-        return () => {
-        };
-    }, []);
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
         []

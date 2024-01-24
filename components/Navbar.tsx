@@ -9,7 +9,7 @@ import {signOut} from "@/utils/supabase/auth";
 
 const navigation = [
     {name: 'Home', href: '/'},
-    {name: 'Playground', href: '/playground'}
+    {name: 'Dashboard', href: '/dashboard'}
 ];
 
 function classNames(...classes: string[]) {

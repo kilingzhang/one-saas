@@ -21,21 +21,19 @@ export default async function RootLayout({children,}: { children: React.ReactNod
     const user = await getCurrentUser();
     return (
         <html lang="en" className={GeistSans.className}>
-        <body className="min-h-screen flex flex-col">
-        <div className="flex flex-col flex-grow">
-            <Suspense><Navbar user={user}/></Suspense>
-            <div className={cn(
-                "flex flex-grow items-center justify-center",
-                "--font-sans"
-            )}>
-                {children}
-            </div>
+        <body className="flex flex-col min-h-screen justify-between">
+        <Suspense><Navbar user={user}/></Suspense>
+        <div className={cn(
+            "flex flex-grow items-center justify-center",
+            "--font-sans"
+        )}>
+            {children}
         </div>
         <footer className="w-full border-t border-t-foreground/10 p-8 flex justify-center text-center text-xs">
             <p>
                 Powered by{" "}
                 <a
-                    href="https://github.com/kilingzhang/saaskit"
+                    href="https://github.com/saaskits/saaskit"
                     target="_blank"
                     className="font-bold hover:underline"
                     rel="noreferrer"
