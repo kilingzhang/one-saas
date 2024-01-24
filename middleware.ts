@@ -10,7 +10,7 @@ export async function middleware(request: NextRequest) {
 
         // This `try/catch` block is only here for the interactive tutorial.
         // Feel free to remove once you have Supabase connected.
-        const {supabase, response} = createClient(request);
+        const {supabase,} = createClient(request);
 
         // Refresh session if expired - required for Server Components
         // https://supabase.com/docs/guides/auth/auth-helpers/nextjs#managing-session-with-middleware
@@ -22,7 +22,7 @@ export async function middleware(request: NextRequest) {
         }
 
         if (session && loginURLs.includes(pathname)) {
-            return NextResponse.redirect(new URL('/', request.url))
+            return NextResponse.redirect(new URL('/dashboard', request.url))
         }
 
 
