@@ -1,5 +1,5 @@
-<a href="https://one-saas.vercel.app/">
-  <img alt="SaaSKit - the fastest way to build saas apps with Next.js and Supabase" src="https://one-saas.vercel.app/opengraph-image.png">
+<a href="https://saaskits.vercel.app/">
+  <img alt="SaaSKit - the fastest way to build saas apps with Next.js and Supabase" src="https://saaskits.vercel.app/opengraph-image.png">
   <h1 align="center">SaaSKit</h1>
 </a>
 
@@ -33,7 +33,7 @@
 
 ## Demo
 
-You can view a fully working demo at [one-saas.vercel.app](https://one-saas.vercel.app/).
+You can view a fully working demo at [saaskits.vercel.app](https://saaskits.vercel.app/).
 
 ## Deploy to Vercel
 
@@ -41,7 +41,7 @@ Vercel deployment will guide you through creating a Supabase account and project
 
 After installation of the Supabase integration, all relevant environment variables will be assigned to the project so the deployment is fully functioning.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fkilingzhang%2Fsaaskit%2Ftree%2Fmain%26project-name%3Dsaaskit%26repository-name%3Dsaaskit%26demo-title%3Dsaaskit%26demo-description%3Dsaaskit%20app%26demo-url%3Dhttps%3A%2F%2Fone-saas.vercel.app%26external-id%3Dhttps%3A%2F%2Fgithub.com%2Fkilingzhang%2Fsaaskit%2Ftree%2Fmain%26demo-image%3Dhttps%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2Fopengraph-image.png%26integration-ids%3Doac_VqOgBHqhEoFTPzGkPd7L0iH6)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fkilingzhang%2Fsaaskit%2Ftree%2Fmain%26project-name%3Dsaaskit%26repository-name%3Dsaaskit%26demo-title%3Dsaaskit%26demo-description%3Dsaaskit%20app%26demo-url%3Dhttps%3A%2F%2Fsaaskits.vercel.app%26external-id%3Dhttps%3A%2F%2Fgithub.com%2Fkilingzhang%2Fsaaskit%2Ftree%2Fmain%26demo-image%3Dhttps%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2Fopengraph-image.png%26integration-ids%3Doac_VqOgBHqhEoFTPzGkPd7L0iH6)
 
 The above will also clone the Starter kit to your GitHub, you can clone that locally and develop locally.
 

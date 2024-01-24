@@ -7,7 +7,6 @@ const notLoginURLs = ['/login', '/', '/auth/callback'];
 export async function middleware(request: NextRequest) {
     try {
         const {pathname} = request.nextUrl
-
         if (pathname.endsWith('.png')) {
             return NextResponse.next({
                 request: {
