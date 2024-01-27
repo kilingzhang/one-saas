@@ -59,6 +59,66 @@ const data: Payment[] = [
         status: "failed",
         email: "carmella@hotmail.com",
     },
+    {
+        id: "bhqecj1p",
+        amount: 721,
+        status: "failed",
+        email: "carmella@hotmail.com",
+    },
+    {
+        id: "bhqacj4p",
+        amount: 721,
+        status: "failed",
+        email: "carmella@hotmail.com",
+    },
+    {
+        id: "bh2ecj4p",
+        amount: 721,
+        status: "failed",
+        email: "carmella@hotmail.com",
+    },
+    {
+        id: "bhqecj7p",
+        amount: 721,
+        status: "failed",
+        email: "carmella@hotmail.com",
+    },
+    {
+        id: "b345cj4p",
+        amount: 721,
+        status: "failed",
+        email: "carmella@hotmail.com",
+    },
+    {
+        id: "bcqecj4p",
+        amount: 721,
+        status: "failed",
+        email: "carmella@hotmail.com",
+    },
+    {
+        id: "ecqecj4p",
+        amount: 721,
+        status: "failed",
+        email: "carmella@hotmail.com",
+    },
+    {
+        id: "dcqecj4p",
+        amount: 721,
+        status: "failed",
+        email: "carmella@hotmail.com",
+    },
+    {
+        id: "ccqecj4p",
+        amount: 721,
+        status: "failed",
+        email: "carmella@hotmail.com",
+    },
+    {
+        id: "acqecj4p",
+        amount: 721,
+        status: "failed",
+        email: "carmella@hotmail.com",
+    },
 ]
 
 export type Payment = {
@@ -140,11 +200,10 @@ const columns: ColumnDef<Payment>[] = [
         enableHiding: false,
         cell: ({row}) => {
             const payment = row.original
-
             return (
                 <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" className="h-8 w-8 p-0">
+                    <DropdownMenuTrigger >
+                        <Button className="h-8 w-8 p-0">
                             <DotsHorizontalIcon className="h-4 w-4"/>
                         </Button>
                     </DropdownMenuTrigger>

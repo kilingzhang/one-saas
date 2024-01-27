@@ -6,11 +6,11 @@ import DeployNextLogo from "@/components/DeployNextLogo";
 import {signOut} from "@/utils/supabase/auth";
 import Link from "next/link";
 import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline';
-import {Avatar} from "@radix-ui/themes";
+import { AvatarImage, Avatar } from "@/components/ui/avatar"
 
 
 const navigation = [
-    {name: 'Overview', href: '/'},
+    {name: 'Overview', href: '/overview'},
 ];
 
 function classNames(...classes: string[]) {
@@ -53,12 +53,9 @@ export default function Navbar({user}: { user: any }) {
                                 <Menu as="div" className="relative ml-3">
                                     <Menu.Button
                                         className="flex rounded-full bg-white text-sm">
-                                        <Avatar
-                                            size="2"
-                                            radius="full"
-                                            src={user?.user_metadata?.avatar_url || 'https://avatar.vercel.sh/leerob'}
-                                            fallback={`${user?.user_metadata?.name} avatar`}
-                                        />
+                                        <Avatar>
+                                            <AvatarImage alt={`${user?.user_metadata?.name} avatar`} src={user?.user_metadata?.avatar_url || 'https://avatar.vercel.sh/leerob'} />
+                                        </Avatar>
                                     </Menu.Button>
                                     <Transition
                                         as={Fragment}
@@ -159,12 +156,9 @@ export default function Navbar({user}: { user: any }) {
                                     <>
                                         <div className="flex items-center px-4">
                                             <div className="flex-shrink-0">
-                                                <Avatar
-                                                    size="2"
-                                                    radius="full"
-                                                    src={user?.user_metadata?.avatar_url || 'https://avatar.vercel.sh/leerob'}
-                                                    fallback={`${user?.user_metadata?.name} avatar`}
-                                                />
+                                                <Avatar>
+                                                    <AvatarImage alt={`${user?.user_metadata?.name} avatar`} src={user?.user_metadata?.avatar_url || 'https://avatar.vercel.sh/leerob'} />
+                                                </Avatar>
                                             </div>
                                             <div className="ml-3">
                                                 <div className="text-base font-medium text-gray-800">
