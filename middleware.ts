@@ -2,7 +2,7 @@ import {type NextRequest, NextResponse} from "next/server";
 import {createClient} from "@/utils/supabase/middleware";
 
 const loginURLs = ['/login'];
-const notLoginURLs = ['/login', '/', '/auth/callback'];
+const notLoginURLs = ['/login', '/auth/callback'];
 
 export async function middleware(request: NextRequest) {
     try {
