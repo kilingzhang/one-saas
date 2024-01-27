@@ -2,7 +2,7 @@ export default function DeployNextLogo() {
     return (
         <a
             className="py-2 px-3 flex rounded-md no-underline hover:bg-btn-background-hover"
-            href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fkilingzhang%2Fsaaskit%2Ftree%2Fmain%26project-name%3Dsaaskit%26repository-name%3Dsaaskit%26demo-title%3Dsaaskit%26demo-description%3Dsaaskit%20app%26demo-url%3Dhttps%3A%2F%2Fone-saaskit.vercel.app%26external-id%3Dhttps%3A%2F%2Fgithub.com%2Fkilingzhang%2Fsaaskit%2Ftree%2Fmain%26demo-image%3Dhttps%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2Fopengraph-image.png%26integration-ids%3Doac_VqOgBHqhEoFTPzGkPd7L0iH6"
+            href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsasskits%2Fsaaskit%2Ftree%2Fmain%26project-name%3Dsaaskit%26repository-name%3Dsaaskit%26demo-title%3Dsaaskit%26demo-description%3Dsaaskit%20app%26demo-url%3Dhttps%3A%2F%2Fone-saaskit.vercel.app%26external-id%3Dhttps%3A%2F%2Fgithub.com%2Fsasskits%2Fsaaskit%2Ftree%2Fmain%26demo-image%3Dhttps%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2Fopengraph-image.png%26integration-ids%3Doac_VqOgBHqhEoFTPzGkPd7L0iH6"
             target="_blank"
             rel="noreferrer"
         >

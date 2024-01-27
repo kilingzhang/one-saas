@@ -1,6 +1,6 @@
 "use client";
 import React, {Fragment} from 'react';
-import {usePathname, useRouter} from 'next/navigation';
+import {usePathname} from 'next/navigation';
 import {Disclosure, Menu, Transition} from '@headlessui/react';
 import DeployNextLogo from "@/components/DeployNextLogo";
 import {signOut} from "@/utils/supabase/auth";
@@ -20,12 +20,11 @@ function classNames(...classes: string[]) {
 
 export default function Navbar({user}: { user: any }) {
     const pathname = usePathname();
-    const router = useRouter()
     return (
         <Disclosure as="nav" className="bg-white shadow-sm">
             {({open}) => (
                 <>
-                    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8 py-2">
                         <div className="flex h-10 justify-between">
                             <div className="flex">
                                 <div className="flex flex-shrink-0 items-center">
@@ -53,9 +52,10 @@ export default function Navbar({user}: { user: any }) {
                             <div className="hidden sm:ml-6 sm:flex sm:items-center">
                                 <Menu as="div" className="relative ml-3">
                                     <Menu.Button
-                                        className="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2">
+                                        className="flex rounded-full bg-white text-sm">
                                         <Avatar
                                             size="2"
+                                            radius="full"
                                             src={user?.user_metadata?.avatar_url || 'https://avatar.vercel.sh/leerob'}
                                             fallback={`${user?.user_metadata?.name} avatar`}
                                         />
@@ -70,50 +70,52 @@ export default function Navbar({user}: { user: any }) {
                                         leaveTo="transform opacity-0 scale-95"
                                     >
                                         <Menu.Items
-                                            className="absolute right-0 z-10 mt-2 w-100 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                            <div className="flex flex-col  p-5">
-                                                <div className="text-base font-medium text-gray-800">
+                                            className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                            <div className="flex flex-col p-2">
+                                                <div className="text-base font-medium text-gray-800 px-2 py-1">
                                                     {user?.user_metadata?.name}
                                                 </div>
-                                                <div className="text-sm font-medium text-gray-500">
+                                                <div className="text-sm font-medium text-gray-500 px-2 py-1">
                                                     {user?.user_metadata?.email}
                                                 </div>
+                                                {user ? (
+                                                    <div className="pt-4">
+                                                        <Menu.Item>
+                                                            {({active}) => (
+                                                                <Link
+                                                                    className={classNames(active ? 'bg-gray-100' : '', 'flex p-2 text-sm text-gray-700')}
+                                                                    href="/settings"
+                                                                >
+                                                                    Settings
+                                                                </Link>
+                                                            )}
+                                                        </Menu.Item>
+                                                        <Menu.Item>
+                                                            {({active}) => (
+                                                                <form
+                                                                    className={classNames(active ? 'bg-gray-100' : '', 'flex p-2 text-sm text-gray-700')}
+                                                                    action={signOut}
+                                                                >
+                                                                    <button>Sign out</button>
+                                                                </form>
+                                                            )}
+                                                        </Menu.Item>
+                                                    </div>
+                                                ) : (
+                                                    <div className="w-full">
+                                                        <Menu.Item>
+                                                            {({active}) => (
+                                                                <Link
+                                                                    href="/login"
+                                                                    className={classNames(active ? 'bg-gray-100' : '', 'flex p-4 text-sm text-gray-700')}
+                                                                >
+                                                                    Sign in
+                                                                </Link>
+                                                            )}
+                                                        </Menu.Item>
+                                                    </div>
+                                                )}
                                             </div>
-                                            {user ? (
-                                                <div className="px-1 py-1 ">
-                                                    <Menu.Item>
-                                                        {({active}) => (
-                                                            <Link
-                                                                className={classNames(active ? 'bg-gray-100' : '', 'flex w-full px-4 py-2 text-sm text-gray-700')}
-                                                                href="/settings"
-                                                            >
-                                                                Settings
-                                                            </Link>
-                                                        )}
-                                                    </Menu.Item>
-                                                    <Menu.Item>
-                                                        {({active}) => (
-                                                            <form
-                                                                className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-                                                                action={signOut}
-                                                            >
-                                                                <button>Sign out</button>
-                                                            </form>
-                                                        )}
-                                                    </Menu.Item>
-                                                </div>
-                                            ) : (
-                                                <Menu.Item>
-                                                    {({active}) => (
-                                                        <Link
-                                                            href="/login"
-                                                            className={classNames(active ? 'bg-gray-100' : '', 'flex w-full px-4 py-2 text-sm text-gray-700')}
-                                                        >
-                                                            Sign in
-                                                        </Link>
-                                                    )}
-                                                </Menu.Item>
-                                            )}
                                         </Menu.Items>
                                     </Transition>
                                 </Menu>
@@ -151,48 +153,63 @@ export default function Navbar({user}: { user: any }) {
                                 </Disclosure.Button>
                             ))}
                         </div>
-                        <div className="border-t border-gray-200 pt-4 pb-3">
-                            {user ? (
-                                <>
-                                    <Avatar
-                                        size="2"
-                                        src={user?.user_metadata?.avatar_url || 'https://avatar.vercel.sh/leerob'}
-                                        fallback={`${user?.user_metadata?.name} avatar`}
-                                    />
+                        <Menu as="div">
+                            <div className="border-t border-gray-200 pt-4 pb-3">
+                                {user ? (
+                                    <>
+                                        <div className="flex items-center px-4">
+                                            <div className="flex-shrink-0">
+                                                <Avatar
+                                                    size="2"
+                                                    radius="full"
+                                                    src={user?.user_metadata?.avatar_url || 'https://avatar.vercel.sh/leerob'}
+                                                    fallback={`${user?.user_metadata?.name} avatar`}
+                                                />
+                                            </div>
+                                            <div className="ml-3">
+                                                <div className="text-base font-medium text-gray-800">
+                                                    {user?.user_metadata?.name}
+                                                </div>
+                                                <div className="text-sm font-medium text-gray-500">
+                                                    {user?.user_metadata?.email}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="mt-3 space-y-1">
+                                            <Menu.Item>
+                                                {({active}) => (
+                                                    <Link
+                                                        className={classNames(active ? 'bg-gray-100' : '', 'flex px-4 py-2 text-sm text-gray-700')}
+                                                        href="/settings"
+                                                    >
+                                                        Settings
+                                                    </Link>
+                                                )}
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                {({active}) => (
+                                                    <form
+                                                        className={classNames(active ? 'bg-gray-100' : '', 'flex px-4 py-2 text-sm text-gray-700')}
+                                                        action={signOut}
+                                                    >
+                                                        <button>Sign out</button>
+                                                    </form>
+                                                )}
+                                            </Menu.Item>
+                                        </div>
+                                    </>
+                                ) : (
                                     <div className="mt-3 space-y-1">
-                                        <Menu.Item>
-                                            {({active}) => (
-                                                <Link
-                                                    className={classNames(active ? 'bg-gray-100' : '', 'flex w-full px-4 py-2 text-sm text-gray-700')}
-                                                    href="/settings"
-                                                >
-                                                    Settings
-                                                </Link>
-                                            )}
-                                        </Menu.Item>
-                                        <Menu.Item>
-                                            {({active}) => (
-                                                <form
-                                                    className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-                                                    action={signOut}
-                                                >
-                                                    <button>Sign out</button>
-                                                </form>
-                                            )}
-                                        </Menu.Item>
+                                        <Link
+                                            href="/login"
+                                            className="flex px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
+                                        >
+                                            Sign in
+                                        </Link>
                                     </div>
-                                </>
-                            ) : (
-                                <div className="mt-3 space-y-1">
-                                    <Link
-                                        href="/login"
-                                        className="flex w-full px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-                                    >
-                                        Sign in
-                                    </Link>
-                                </div>
-                            )}
-                        </div>
+                                )}
+                            </div>
+                        </Menu>
                     </Disclosure.Panel>
                 </>
             )}
