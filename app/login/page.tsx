@@ -23,15 +23,18 @@ export default function Login() {
         };
     }, []);
     return (
-        <Auth
-            supabaseClient={supabase}
-            redirectTo={process.env.NEXT_PUBLIC_SITE_URL}
-            appearance={{theme: ThemeSupa}}
-            providers={[
-                'github',
-                // 'google', 'twitter', 'facebook', 'gitlab', 'bitbucket'
-            ]}
-            onlyThirdPartyProviders={false}
-        />
+        <div className="flex flex-col min-h-full min-w-full items-center justify-center">
+            <Auth
+                supabaseClient={supabase}
+                redirectTo={process.env.NEXT_PUBLIC_SITE_URL}
+                appearance={{theme: ThemeSupa}}
+                providers={[
+                    'github',
+                    // 'google', 'twitter', 'facebook', 'gitlab', 'bitbucket'
+                ]}
+                onlyThirdPartyProviders={false}
+            />
+        </div>
+
     )
 }
