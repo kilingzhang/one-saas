@@ -22,9 +22,9 @@ export default function Tab() {
                     href={item.href}
                     className={classNames(
                         pathname === item.href
-                            ? 'border-slate-500 text-gray-900 hover:bg-gray-100 rounded-lg'
-                            : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg',
-                        'inline-flex items-center mx-2 border-b-2 text-sm font-medium h-10 px-2'
+                            ? 'border-slate-500 text-gray-900 hover:bg-gray-100'
+                            : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-100',
+                        'inline-flex items-center mx-1 px-3 border-b-2 text-sm font-medium h-10'
                     )}
                     aria-current={pathname === item.href ? 'page' : undefined}
                 >
